@@ -16,7 +16,7 @@ def get_cat():
         "owner": "sdfgfg",
         "image": "https://place-hold.it/320x240&text=Cat"
     }]
-    return catx
+    return cat
 
 
 if __name__ == "__main__":
