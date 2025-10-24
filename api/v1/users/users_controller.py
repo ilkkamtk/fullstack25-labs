@@ -9,7 +9,7 @@ def get_users():
 def get_user_by_id(id):
     try:
         user = find_user_by_id(id)
-    except:
+    except (ValueError, TypeError):
         return {"error": "malformed input"}, 404
 
     if not user:
