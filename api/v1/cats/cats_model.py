@@ -24,7 +24,15 @@ def list_all_cats():
 
 def find_cat_by_id(cat_id):
     """Find a cat by ID"""
-    return next((cat for cat in cat_items if cat['cat_id'] == cat_id), None)
+
+    for cat in cat_items:
+        if cat['cat_id'] == int(cat_id):
+            return cat
+    return None
+
+
+    # this line is same as the one above
+    #return next((cat for cat in cat_items if cat['cat_id'] == int(cat_id)), None)
 
 def add_cat(cat):
     """Add a new cat"""

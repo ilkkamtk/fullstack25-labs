@@ -15,7 +15,7 @@ app.register_blueprint(cats_bp)
 
 @app.get("/")
 def index():
-    return "Welcome to my REST API!"
+    return "Welcome to my REST API! Api endpoints can be found under /api/v1"
 
 
 if __name__ == "__main__":

@@ -1,0 +1,66 @@
+### Get all cats
+GET http://127.0.0.1:3000/api/v1/cats
+
+### Get cat 9592 data
+GET http://127.0.0.1:3000/api/v1/cats/9592
+
+### Get cat 9590 data
+GET http://127.0.0.1:3000/api/v1/cats/9590
+
+### Get cat with malformed id
+### Expecting malformed input error message
+GET http://127.0.0.1:3000/api/v1/cats/-
+
+### Get cat with non-existing id
+# expecting error 404
+GET http://127.0.0.1:3000/api/v1/cats/10000
+
+
+### Add cat named Frank
+POST http://127.0.0.1:3000/api/v1/cats
+Content-Type: application/json
+
+{
+    "cat_name": "Frank",
+    "weight": 11,
+    "owner": 1,
+    "filename": "cat.jpg",
+    "birthdate": "2021-10-12"
+}
+
+### Add cat named Vito
+POST http://127.0.0.1:3000/api/v1/cats
+Content-Type: application/json
+
+{
+    "cat_name": "Vito",
+    "weight": 10,
+    "owner": 2,
+    "filename": "vito.jpg",
+    "birthdate": "2007-10-12"
+}
+
+### Add cat named Veikko
+POST http://127.0.0.1:3000/api/v1/cats
+Content-Type: application/json
+
+{
+    "cat_name": "Veikko",
+    "weight": 5.5,
+    "owner": 2,
+    "filename": "cat.jpg",
+    "birthdate": "2007-10-12"
+}
+
+### Add cat with missing name
+POST http://127.0.0.1:3000/api/v1/cats
+Content-Type: application/json
+
+{
+    "weight": 5.5,
+    "owner": 2,
+    "filename": "cat.jpg",
+    "birthdate": "2007-10-12"
+}
+
+
