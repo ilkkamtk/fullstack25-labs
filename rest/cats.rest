@@ -16,6 +16,19 @@ GET http://127.0.0.1:3000/api/v1/cats/-
 GET http://127.0.0.1:3000/api/v1/cats/10000
 
 
+### PUT cat 9592 data
+PUT http://127.0.0.1:3000/api/v1/cats/9592
+Content-Type: application/json
+
+{
+  "cat_name": "bingo"
+}
+
+### DELETE cat 9592 data
+DELETE http://127.0.0.1:3000/api/v1/cats/9592
+
+
+
 ### Add cat named Frank
 POST http://127.0.0.1:3000/api/v1/cats
 Content-Type: application/json

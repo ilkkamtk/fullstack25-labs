@@ -11,6 +11,14 @@ def get_all_cats():
 def get_cat(id):
     return get_cat_by_id(id)
 
+@cats_bp.route('/<id>', methods=['PUT'])
+def put_cat(id):
+    return {'message': 'Cat item updated.'}, 200
+
+@cats_bp.route('/<id>', methods=['DELETE'])
+def delete_cat(id):
+    return {'message': 'Cat item deleted.'}, 200
+
 # @cats_bp.route('/', methods=['POST'])
 @cats_bp.post("/")
 def save_cat():
