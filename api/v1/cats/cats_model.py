@@ -1,3 +1,10 @@
+from mongoengine import Document, StringField, IntField
+
+class Cat(Document):
+    name = StringField(required=True)
+    weight = IntField()
+
+
 # Mock data
 cat_items = [
     {
@@ -41,6 +48,14 @@ def add_cat(cat):
     owner = cat.get('owner')
     filename = cat.get('filename')
     birthdate = cat.get('birthdate')
+
+    cat_mongo = Cat(
+        name=cat_name,
+        weight=weight
+    )
+
+    cat_mongo.save()
+
 
     new_id = cat_items[0]['cat_id'] + 1
     new_cat = {

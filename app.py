@@ -4,6 +4,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from dotenv import load_dotenv
 from api.v1.cats.cats_routes import cats_bp
 from api.v1.users.users_routes import users_bp
+from api.utils.db import mongo_connect
 
 load_dotenv()
 
@@ -21,4 +22,5 @@ def index():
 
 
 if __name__ == "__main__":
+    mongo_connect()
     app.run(host="127.0.0.1", port=os.getenv("PORT"), debug=os.getenv("FLASK_DEBUG"), use_reloader=os.getenv("FLASK_RELOADER"))
