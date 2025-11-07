@@ -1,30 +1,19 @@
-# Mock data
-user_items = [
-   {
-     'user_id': 3609,
-     'name': 'John Doe',
-     'username': 'johndoe',
-     'email': 'john@metropolia.fi',
-     'role': 'user',
-     'password': 'password',  # Note: Never store plain text passwords in production!
-  },
-]
+from mongoengine import Document, StringField
+
+class User(Document):
+    name = StringField(required=True)
+    username = StringField(required=True)
+    email = StringField(required=True)
+    role = StringField(required=True)
+    password = StringField(required=True)
 
 def list_all_users():
     """Return all users"""
-    return user_items
+    return User.objects()
 
 def find_user_by_id(user_id):
     """Find a user by ID"""
-
-    for user in user_items:
-        if user['user_id'] == int(user_id):
-            return user
-    return None
-
-
-    # this line is same as the one above
-    #return next((user for user in user_items if user['user_id'] == int(user_id)), None)
+    return User.objects.get(id=user_id)
 
 def add_user(user):
     """Add a new user"""
@@ -35,14 +24,14 @@ def add_user(user):
     role = user.get('role')
     password = user.get('password')
 
-    new_id = user_items[0]['user_id'] + 1
-    new_user = {
-        'user_id': new_id,
-        'name': name,
-        'username': username,
-        'email': email,
-        'role': role,
-        'password': password
-    }
-    user_items.insert(0, new_user)
-    return {'user_id': new_id}
+    new_user = User(
+        name=name,
+        username=username,
+        email=email,
+        role=role,
+        password=password
+    )
+
+    new_user.save()
+
+    return user

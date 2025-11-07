@@ -2,11 +2,11 @@
 GET http://127.0.0.1:3000/api/v1/users
 
 ### Get user 3609 data
-GET http://127.0.0.1:3000/api/v1/users/3609
+GET http://127.0.0.1:3000/api/v1/users/690def7093d8affbddd8cca5
 
 ### Get user with malformed id
 ### Expecting malformed input error message
-GET http://127.0.0.1:3000/api/v1/users/-
+GET http://127.0.0.1:3000/api/v1/users/690def7093d8affbddd8c332
 
 ### Get user with non-existing id
 # expecting error 404

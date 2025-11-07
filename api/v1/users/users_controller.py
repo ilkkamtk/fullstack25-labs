@@ -4,7 +4,7 @@ from .users_model import list_all_users, find_user_by_id, add_user
 def get_users():
     """Get all users"""
     users = list_all_users()
-    return users, 200
+    return users.to_json(), 200
 
 def get_user_by_id(id):
     try:
@@ -14,7 +14,7 @@ def get_user_by_id(id):
 
     if not user:
         return {"error": "not found"}, 404
-    return user, 200
+    return user.to_json(), 200
 
 def create_user():
     # option 1
