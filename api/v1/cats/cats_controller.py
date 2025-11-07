@@ -4,7 +4,7 @@ from .cats_model import list_all_cats, find_cat_by_id, add_cat
 def get_cats():
     """Get all cats"""
     cats = list_all_cats()
-    return cats, 200
+    return cats.to_json(), 200
 
 def get_cat_by_id(id):
     try:
@@ -14,7 +14,7 @@ def get_cat_by_id(id):
 
     if not cat:
         return {"error": "not found"}, 404
-    return cat, 200
+    return cat.to_json(), 200
 
 def create_cat():
     # option 1

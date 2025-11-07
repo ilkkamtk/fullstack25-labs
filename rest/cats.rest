@@ -2,7 +2,7 @@
 GET http://127.0.0.1:3000/api/v1/cats
 
 ### Get cat 9592 data
-GET http://127.0.0.1:3000/api/v1/cats/9592
+GET http://127.0.0.1:3000/api/v1/cats/690de2008ae8dde883895f54
 
 ### Get cat 9590 data
 GET http://127.0.0.1:3000/api/v1/cats/9590
@@ -36,7 +36,7 @@ Content-Type: application/json
 {
     "cat_name": "Frank",
     "weight": 11,
-    "owner": 1,
+    "owner": "1",
     "filename": "cat.jpg",
     "birthdate": "2021-10-12"
 }
@@ -48,7 +48,7 @@ Content-Type: application/json
 {
     "cat_name": "Vito",
     "weight": 10,
-    "owner": 2,
+    "owner": "2",
     "filename": "vito.jpg",
     "birthdate": "2007-10-12"
 }
