@@ -1,5 +1,6 @@
 from flask import request
-from .users_model import list_all_users, find_user_by_id, add_user
+from .users_model import list_all_users, find_user_by_id, User
+
 
 def get_users():
     """Get all users"""
@@ -19,7 +20,9 @@ def get_user_by_id(id):
 def create_user():
     # option 1
     data = request.get_json()
-    user = add_user(data)
+    user = User(**data)
+    new_user = User.create_user(user)
+    return new_user.to_json(), 201
 
     return user, 200
 

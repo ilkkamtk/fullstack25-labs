@@ -31,10 +31,10 @@ POST http://127.0.0.1:3000/api/v1/users
 Content-Type: application/json
 
 {
-    "name": "Frank",
+    "name": "john",
     "username": "johndoe",
     "email": "john@metropolia.fi",
-    "role": "user",
+    "role": "admin",
     "password": "password"
 }
 
@@ -47,4 +47,14 @@ Content-Type: application/json
     "email": "john@metropolia.fi",
     "role": "user",
     "password": "password"
+}
+
+
+### Post login
+POST http://127.0.0.1:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "password"
 }

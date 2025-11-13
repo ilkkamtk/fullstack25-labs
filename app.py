@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template
 from werkzeug.middleware.proxy_fix import ProxyFix
 from dotenv import load_dotenv
+
+from api.v1.auth.auth_routes import auth_bp
 from api.v1.cats.cats_routes import cats_bp
 from api.v1.users.users_routes import users_bp
 from api.utils.db import mongo_connect
@@ -21,6 +23,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_prefix=1)
 # Register blueprints
 app.register_blueprint(cats_bp)
 app.register_blueprint(users_bp)
+app.register_blueprint(auth_bp)
 
 @app.get("/")
 def index():
