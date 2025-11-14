@@ -340,3 +340,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,pycharm+all,visualstudiocode,python
+
+
+
+# do not add uploaded files to git version control, they are unnecessary
+static/uploads/
