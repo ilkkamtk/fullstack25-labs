@@ -14,6 +14,8 @@ def post_login():
     user = User.verify_credentials(username, password) # Uses bcrypt check internally
 
     if user:
+        # this might cause security vulnerability in situations where JWT_SECRET_KEY does not exist
+        # because then the token is create by using key hardcoded in the source code
         jwt_secret = os.getenv("JWT_SECRET_KEY", "fallback-jwt-secret")
 
         # 1. Create the payload with expiration time
