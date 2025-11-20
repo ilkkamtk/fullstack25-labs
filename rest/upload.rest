@@ -1,0 +1,17 @@
+POST http://127.0.0.1:3000/api/v1/upload/
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="cat_name"
+
+Car
+------WebKitFormBoundary
+Content-Disposition: form-data; name="owner"
+
+37
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="car.jpg"
+Content-Type: image/jpeg
+
+< ./images/car.jpg
+------WebKitFormBoundary--
