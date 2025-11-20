@@ -1,11 +1,15 @@
 from flask import request
+
 from .users_model import list_all_users, find_user_by_id, User
+from .users_schema import UserSchema
+from ...utils.simple_errors import simple_errors
 
-
+@simple_errors
 def get_users():
     """Get all users"""
     users = list_all_users()
-    return users.to_json(), 200
+    users_json = UserSchema(many=True).dump(users)
+    return users_json, 200
 
 def get_user_by_id(id):
     try:
@@ -17,18 +21,11 @@ def get_user_by_id(id):
         return {"error": "not found"}, 404
     return user.to_json(), 200
 
+@simple_errors
 def create_user():
-    # option 1
     data = request.get_json()
     user = User(**data)
-    new_user = User.create_user(user)
-    return new_user.to_json(), 201
+    new_user = user.save()
+    nice_user = UserSchema().dump(new_user)
+    return nice_user, 201
 
-    return user, 200
-
-    # option 2
-    #user = add_user(request.get_json())
-    #return user, 200
-
-    # option 3
-    #return add_user(request.get_json()), 200

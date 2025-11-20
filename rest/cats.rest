@@ -31,12 +31,12 @@ DELETE http://127.0.0.1:3000/api/v1/cats/9592
 
 ### Add cat named Frank
 POST http://127.0.0.1:3000/api/v1/cats
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjkxZWRmODJiYzg2MWVlMTg4YzFmNWRkIiwidXNlcm5hbWUiOiJqb2huZG9lIiwiZXhwIjoxNzYzNzE3Mzk5fQ.eDB_RqV2ZJjSuvpWuevaTIvv2cx1atUEJ9_MHuiXKQA
 Content-Type: application/json
 
 {
     "cat_name": "Frank",
     "weight": 11,
-    "owner": "1",
     "filename": "cat.jpg",
     "birthdate": "2021-10-12"
 }
