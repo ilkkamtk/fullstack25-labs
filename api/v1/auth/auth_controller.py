@@ -11,6 +11,13 @@ def post_login():
     # ... credential check ...
     username = data.get("username")
     password = data.get("password")
+
+    if not username:
+        return {"message": "Username missing"}, 401
+
+    if not password:
+        return {"message": "Password missing"}, 401
+
     user = User.verify_credentials(username, password) # Uses bcrypt check internally
 
     if user:
