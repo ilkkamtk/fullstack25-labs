@@ -32,3 +32,7 @@ def create_user():
 
     # option 3
     #return add_user(request.get_json()), 200
+
+def get_current_user(current_user):
+    user = User.objects.get(id=current_user.id)
+    return user.to_json(), 200

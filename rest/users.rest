@@ -38,6 +38,21 @@ Content-Type: application/json
     "password": "password"
 }
 
+
+
+### Add user named Matti
+POST http://127.0.0.1:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "Matti",
+    "username": "MattiUser",
+    "email": "matti2@metropolia.fi",
+    "role": "admin",
+    "password": "password"
+}
+
+
 ### Add user with missing name
 POST http://127.0.0.1:3000/api/v1/users
 Content-Type: application/json
