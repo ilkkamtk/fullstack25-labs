@@ -5,10 +5,18 @@ POST http://localhost:3000/api/v1/auth/login
 Content-Type: application/json
 
 {
-  "username": "JohnDoe",
-  "password": "12345"
+  "username": "MattiUser",
+  "password": "password"
 }
 
 ### Get my user info
 GET http://localhost:3000/api/v1/users/me
 Authorization: Bearer {{login.response.body.token}}
+
+### Get my user info without authorization header
+GET http://localhost:3000/api/v1/users/me
+
+
+### Get my user info with incorrect header
+GET http://localhost:3000/api/v1/users/me
+Authorization: Bearer sdiouhjdsiuhdsiuhsd
